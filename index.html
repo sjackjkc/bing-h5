@@ -1,1 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>冰雪中国式浪漫 H5</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+  <canvas id="snowCanvas" aria-hidden="true"></canvas>
+  <main class="phone" aria-label="冰雪中国式浪漫十页H5">
+    <section class="page active" data-theme="cover" style="--bg:url('./assets/bg-cover.jpg')">
+      <div class="ribbon">2022 Beijing</div>
+      <img class="emblem float-soft" src="./assets/emblem.jpg" alt="北京冬奥会会徽">
+      <h1>冰雪里的<br>中国式浪漫</h1>
+      <p class="lead">跟着雪花出发，遇见节气、场馆、吉祥物和一起向未来的瞬间。</p>
+      <img class="mascot hero-bing" src="./assets/bing.jpg" alt="冰墩墩">
+      <button class="primary next">开启旅程</button>
+      <div class="swipe-hint">上滑翻页</div>
+    </section>
 
+    <section class="page" data-theme="solar" style="--bg:url('./assets/bg-blue.jpg')">
+      <p class="kicker">第一站</p>
+      <h2>二十四节气倒计时</h2>
+      <p class="body-copy">开幕式把倒计时交给中国节气：从雨水、惊蛰到立春，每一帧都像会动的壁纸。</p>
+      <div class="solar-orbit" id="solarOrbit">
+        <article><img src="./assets/solar-lichun.jpg" alt="立春"><span>立春</span></article>
+        <article><img src="./assets/solar-daxue.jpg" alt="大雪"><span>大雪</span></article>
+        <article><img src="./assets/china-style.jpg" alt="中国风场地"><span>中国风</span></article>
+      </div>
+      <button class="ghost pulse" id="shuffleSolar">点亮节气</button>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="opening" style="--bg:url('./assets/bg-village.jpg')">
+      <p class="kicker">第二站</p>
+      <h2>一朵雪花入场</h2>
+      <div class="photo-ticket tilt-card">
+        <img src="./assets/opening.jpg" alt="北京冬奥会开幕式">
+        <span>开幕式现场</span>
+      </div>
+      <p class="body-copy">雪花、五环、火炬与光影，让传统意象和现代科技在同一个舞台上相遇。</p>
+      <button class="ghost spark-btn">放一束烟花</button>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="puzzle" style="--bg:url('./assets/bg-blue.jpg')">
+      <p class="kicker">互动任务</p>
+      <h2>拼出冰雪五环</h2>
+      <p class="body-copy">点击开始，碎片会飞回自己的位置，完成一张冰雪五环拼图。</p>
+      <div class="puzzle-board" id="puzzleBoard" aria-label="冰雪五环拼图动画">
+        <span class="piece p1"></span>
+        <span class="piece p2"></span>
+        <span class="piece p3"></span>
+        <span class="piece p4"></span>
+      </div>
+      <button class="primary" id="playPuzzle">开始拼图</button>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="video" style="--bg:url('./assets/bg-track.jpg')">
+      <p class="kicker">视频片段</p>
+      <h2>把冬奥现场装进口袋</h2>
+      <div class="video-shell">
+        <video poster="./assets/opening.jpg" controls preload="metadata" playsinline>
+          <source src="./assets/winter-video.mp4" type="video/mp4">
+          你的浏览器不支持视频播放，可查看 assets/snowflake.gif。
+        </video>
+      </div>
+      <p class="body-copy">这一页可在木疙瘩中替换为视频组件，保留点击播放与浮动边框动画。</p>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="venues" style="--bg:url('./assets/bg-village.jpg')">
+      <p class="kicker">第三站</p>
+      <h2>会发光的场馆</h2>
+      <div class="venue-stack">
+        <button class="venue-card active" data-caption="国家速滑馆“冰丝带”，流线像冰面上的速度轨迹。"><img src="./assets/ice-ribbon.jpg" alt="国家速滑馆"></button>
+        <button class="venue-card" data-caption="速度滑冰场馆，冰面与灯光一起拉出未来感。"><img src="./assets/speed-venue.jpg" alt="速度滑冰场馆"></button>
+        <button class="venue-card" data-caption="“雪游龙”把山势、赛道和中国意象连成一笔。"><img src="./assets/dragon-track.jpg" alt="雪游龙"></button>
+      </div>
+      <p class="caption" id="venueCaption">国家速滑馆“冰丝带”，流线像冰面上的速度轨迹。</p>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="quiz" style="--bg:url('./assets/bg-blue.jpg')">
+      <p class="kicker">答题挑战</p>
+      <h2>你记住了哪个浪漫细节？</h2>
+      <div class="quiz-box" id="quizBox">
+        <p class="question">北京冬奥会开幕式倒计时采用了哪种中国文化元素？</p>
+        <button data-answer="wrong">十二生肖</button>
+        <button data-answer="right">二十四节气</button>
+        <button data-answer="wrong">五环同心奖牌</button>
+      </div>
+      <p class="result" id="quizResult">选择一个答案，点亮你的冬奥徽章。</p>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="torch" style="--bg:url('./assets/bg-village.jpg')">
+      <p class="kicker">第四站</p>
+      <h2>点亮冰雪祝福</h2>
+      <p class="body-copy">点击火炬，把冬奥祝福送上冰雪赛场，让中国红和冰雪蓝一起发光。</p>
+      <div class="torch-stage" id="torchStage" aria-label="点亮火炬互动动画">
+        <img src="./assets/shuey.jpg" alt="雪容融" class="torch-mascot float-soft">
+        <span class="torch-flame" aria-hidden="true"></span>
+        <span class="torch-glow" aria-hidden="true"></span>
+      </div>
+      <button class="primary" id="lightTorch">点亮火炬</button>
+      <p class="result" id="torchResult">点击后生成一束属于你的冬奥祝福光。</p>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="card" style="--bg:url('./assets/bg-blue.jpg')">
+      <p class="kicker">纪念卡</p>
+      <h2>生成我的冬奥卡</h2>
+      <p class="body-copy">选择一个关键词，生成一张属于你的冰雪中国式浪漫纪念卡。</p>
+      <div class="wish-card" id="wishCard">
+        <img src="./assets/bing.jpg" alt="冰墩墩" class="wish-card-img">
+        <p class="wish-card-tag">冰雪浪漫</p>
+        <p class="wish-card-text" id="wishCardText">愿每一次出发，都像雪花一样闪闪发光。</p>
+      </div>
+      <div class="card-options" aria-label="选择纪念卡关键词">
+        <button data-card="冰雪浪漫" data-text="愿每一次出发，都像雪花一样闪闪发光。" class="active">冰雪浪漫</button>
+        <button data-card="一起向未来" data-text="把热爱写进冰面，把祝福送向未来。">一起向未来</button>
+        <button data-card="中国式浪漫" data-text="中国红遇见冰雪蓝，传统文化也能如此青春。">中国式浪漫</button>
+      </div>
+      <button class="nav next" aria-label="下一页">↓</button>
+    </section>
+
+    <section class="page" data-theme="final" style="--bg:url('./assets/bg-cover.jpg')">
+      <p class="kicker">完成旅程</p>
+      <h2>一起向未来</h2>
+      <div class="final-mascots">
+        <img class="mascot float-soft" src="./assets/bing.jpg" alt="冰墩墩">
+        <img class="mascot float-soft delay" src="./assets/shuey.jpg" alt="雪容融">
+      </div>
+      <p class="body-copy">中国红遇见冰雪蓝，传统文化遇见科技舞台，这就是属于冬奥的中国式浪漫。</p>
+      <button class="primary" id="restart">再看一遍</button>
+    </section>
+  </main>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <script src="./script.js"></script>
+</body>
+</html>
