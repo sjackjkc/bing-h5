@@ -1,0 +1,22 @@
+{
+  "name": "bing-h5",
+  "version": "1.0.0",
+  "description": "冰雪中国式浪漫 H5 - Beijing 2022 Winter Olympics themed interactive H5 experience",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "h5",
+    "beijing",
+    "olympics",
+    "winter"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.3.1"
+  }
+}
